@@ -76,18 +76,15 @@ if st.button("Rank Resumes") and (job_description_text or uploaded_resumes is no
 
             score = similarities[0][0]
 
-            # Set a threshold of 0.7 for candidate match
-            if score >= 0.7:
-                message = "This candidate is a match for the job."
-            else:
-                message = "This candidate is not a match for the job."
+            # Convert similarity score to a percentage
+            percentage_match = score * 100
 
-            # Store the similarity score and message for this resume
-            similarity_scores[uploaded_resume.name] = (score, message)
+            # Store the percentage match for this resume
+            similarity_scores[uploaded_resume.name] = percentage_match
 
-    # Display ranked resumes with messages
-    sorted_resumes = sorted(similarity_scores.items(), key=lambda x: x[1][0], reverse=True)
+    # Display ranked resumes with percentage match
+    sorted_resumes = sorted(similarity_scores.items(), key=lambda x: x[1], reverse=True)
 
     st.subheader("Ranked Resumes:")
-    for rank, (resume_name, (score, message)) in enumerate(sorted_resumes, start=1):
-        st.write(f"Rank {rank}: {resume_name}, Similarity Score: {score:.4f}, {message}")
+    for rank, (resume_name, percentage_match) in enumerate(sorted_resumes, start=1):
+        st.write(f"Rank {rank}: {resume_name}, Match Percentage: {percentage_match:.2f}%")
