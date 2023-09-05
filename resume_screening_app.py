@@ -76,12 +76,18 @@ if st.button("Rank Resumes") and (job_description_text or uploaded_resumes is no
 
             score = similarities[0][0]
 
-            # Store the similarity score for this resume
-            similarity_scores[uploaded_resume.name] = score
+            # Set a threshold of 0.7 for candidate match
+            if score >= 0.7:
+                message = "This candidate is a match for the job."
+            else:
+                message = "This candidate is not a match for the job."
 
-    # Display ranked resumes
-    sorted_resumes = sorted(similarity_scores.items(), key=lambda x: x[1], reverse=True)
+            # Store the similarity score and message for this resume
+            similarity_scores[uploaded_resume.name] = (score, message)
+
+    # Display ranked resumes with messages
+    sorted_resumes = sorted(similarity_scores.items(), key=lambda x: x[1][0], reverse=True)
 
     st.subheader("Ranked Resumes:")
-    for rank, (resume_name, score) in enumerate(sorted_resumes, start=1):
-        st.write(f"Rank {rank}: {resume_name}, Similarity Score: {score:.4f}")
+    for rank, (resume_name, (score, message)) in enumerate(sorted_resumes, start=1):
+        st.write(f"Rank {rank}: {resume_name}, Similarity Score: {score:.4f}, {message}")
