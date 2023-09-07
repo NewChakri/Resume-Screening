@@ -11,13 +11,9 @@ Web app : https://newchakri-resume-screening.streamlit.app
 
 **Efficient Screening**: The app uses Sentence-BERT (BERT-based NLP model) for text embeddings and calculates cosine similarity scores to measure how closely each resume matches the job description.
 
-**Advanced Algorithms**: It employs state-of-the-art NLP algorithms for text preprocessing, ensuring that stopwords are removed, text is cleaned, and features are extracted efficiently.
-
-**Interactive User Interface**: The Streamlit-powered user interface allows users to interact with the app seamlessly. Setting the job description, uploading resumes, and ranking candidates is a breeze.
-
 **Ranked Resumes**: Resumes are ranked in real-time based on their similarity scores, enabling you to focus on candidates who are the best match for the position.
 
-**Scalability**: The app's architecture is designed for scalability, making it suitable for handling a large volume of resumes and job descriptions.
+**Interactive User Interface**: The Streamlit-powered user interface allows users to interact with the app seamlessly. Setting the job description, uploading resumes, and ranking candidates is a breeze.
 
 # Technical Details
 **Python**: The app is primarily built using Python, a versatile programming language known for its extensive libraries and community support.
