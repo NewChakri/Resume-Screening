@@ -22,7 +22,14 @@ def extract_text_from_pdf(pdf_file):
     except Exception as e:
         st.error(f"Error extracting text from PDF: {str(e)}")
     return text
-
+    
+# Function to preprocess text
+def preprocess_text(text):
+    text = text.replace("\n", " ")
+    text = text.replace("- ", " ")
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+    
 # Create a Sentence-BERT model
 sbert_model = SentenceTransformer('bert-base-nli-mean-tokens')
 
