@@ -11,7 +11,7 @@ Web app : https://newchakri-resume-screening.streamlit.app
 
 **Efficient Screening**: Behind the scenes, the app uses TF-IDF vectorization to convert textual data into numerical representations and then computes cosine similarity scores to measure how closely each resume aligns with the job description.
 
-**dvanced Algorithms**: It employs state-of-the-art NLP algorithms for text preprocessing, ensuring that stopwords are removed, text is cleaned, and features are extracted efficiently.
+**Advanced Algorithms**: It employs state-of-the-art NLP algorithms for text preprocessing, ensuring that stopwords are removed, text is cleaned, and features are extracted efficiently.
 
 **Interactive User Interface**: The Streamlit-powered user interface allows users to interact with the app seamlessly. Setting the job description, uploading resumes, and ranking candidates is a breeze.
 
